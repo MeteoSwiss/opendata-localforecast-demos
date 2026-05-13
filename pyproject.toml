@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "open-source-template"
+version = "0.0.0"  # DO NOT SET. The version of the package is always set by the CI/CD pipeline.
+description = "A demo for the OSS template at MeteoSwiss."
+license = "BSD-3-Clause"
+authors = ["Michele Cattaneo <michele.cattaneo@meteoswiss.ch>"]
+readme = "README.rst"
+include = ["CHANGELOG.rst"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.15.0"
+pydata-sphinx-theme = "^0.16.1"
+pylint = "^3.3.5"
+pytest = "^8.3.5"
+pytest-cov = "^6.0.0"
+sphinx = "^8.1.3"
+sphinx-autoapi = "^3.6.0"
+yapf = "^0.43.0"
+
+[tool.yapf]
+based_on_style = "pep8"
+column_limit = "120"
+
+[tool.pylint.master]
+disable = [
+    'C0114', # missing-module-docstring
+    'C0115', # missing-class-docstring
+    'C0116', # missing-function-docstring
+    'W0511', # fix me or to-do comments are already covered by SonarQube
+]
+
+[tool.pylint.basic]
+argument-naming-style = 'any'
+attr-naming-style = 'any'
+
+[tool.pylint.format]
+# Maximum number of lines in a module.
+max-line-length = 120
+
+[tool.pylint.design]
+# Minimum number of public methods for a class (see R0903).
+min-public-methods = 0
+
+[tool.mypy]
+ignore_missing_imports = true
+disallow_untyped_defs = true
+
+
+[tool.coverage.run]
+omit = ["test/**",  "doc/**"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
