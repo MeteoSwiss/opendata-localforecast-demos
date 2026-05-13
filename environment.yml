@@ -1,9 +1,0 @@
-name: opendata-localforecast
-channels:
-  - conda-forge
-dependencies:
-  - python=3.12
-  - httpx
-  - pandas
-  - matplotlib
-  - numpy
