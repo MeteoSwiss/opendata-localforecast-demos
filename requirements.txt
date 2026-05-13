@@ -1,4 +1,0 @@
-httpx
-pandas
-matplotlib
-numpy
