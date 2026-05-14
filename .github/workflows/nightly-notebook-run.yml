@@ -47,3 +47,10 @@ jobs:
               "$notebook" \
               "executed_notebooks/$(basename "$notebook")"
           done
+
+      # Step 5: Upload executed notebooks as artifacts
+      - name: Upload executed notebooks
+        uses: actions/upload-artifact@v4
+        with:
+          name: executed-notebooks
+          path: executed_notebooks/*.ipynb
