@@ -1,45 +1,40 @@
 import pandas as pd
 import requests
-import sys
 import os
+import sys
 
+# 1. Define URLs and Paths
 METADATA_URL = "https://data.geo.admin.ch/ch.meteoschweiz.ogd-local-forecasting/ogd-local-forecasting_meta_parameters.csv"
 REFERENCE_FILE = "metadata_reference.csv"
 
 def check_metadata():
-    # 1. Fetch live metadata
+    print(f"Fetching current metadata from {METADATA_URL}...")
     try:
-        live_df = pd.read_csv(METADATA_URL, encoding='latin-1', sep=';')
+        # Fetch current metadata (using latin-1 as per MeteoSwiss OGD specs)
+        current_df = pd.read_csv(METADATA_URL, sep=';', encoding='latin-1')
     except Exception as e:
         print(f"Error fetching metadata: {e}")
         sys.exit(1)
 
-    # 2. Load reference metadata
+    # 2. Check if reference file exists
     if not os.path.exists(REFERENCE_FILE):
-        print("Reference file not found. Creating it now.")
-        live_df.to_csv(REFERENCE_FILE, index=False)
-        return
+        print(f"Reference file {REFERENCE_FILE} not found. Creating it now...")
+        current_df.to_csv(REFERENCE_FILE, index=False)
+        print("✅ Reference file created. Please commit this to the repo.")
+        # We exit with 1 so the GitHub Action knows it needs to COMMIT this new file
+        sys.exit(1)
 
-    ref_df = pd.read_csv(REFERENCE_FILE)
-
-    # 3. Compare structure and critical columns
-    # Check for missing/new parameters (shortnames)
-    live_params = set(live_df['shortname'].unique())
-    ref_params = set(ref_df['shortname'].unique())
-
-    added = live_params - ref_params
-    removed = ref_params - live_params
-
-    if added or removed:
-        print(f"🚨 METADATA CHANGE DETECTED!")
-        if added: print(f"Added parameters: {added}")
-        if removed: print(f"Removed parameters: {removed}")
-        
-        # Update the reference file so the next run is clean
-        live_df.to_csv(REFERENCE_FILE, index=False)
-        sys.exit(1) # Exit with error to trigger GitHub Action failure
+    # 3. Compare with existing reference
+    reference_df = pd.read_csv(REFERENCE_FILE)
+    
+    # Simple comparison (you can make this more complex if needed)
+    if current_df.equals(reference_df):
+        print("✅ No changes detected in metadata.")
+        sys.exit(0)
     else:
-        print("✅ Metadata is consistent with reference.")
+        print("⚠️ Metadata changes detected!")
+        current_df.to_csv(REFERENCE_FILE, index=False)
+        sys.exit(1)
 
 if __name__ == "__main__":
     check_metadata()
