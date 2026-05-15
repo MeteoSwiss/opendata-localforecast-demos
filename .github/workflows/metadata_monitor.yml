@@ -16,12 +16,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug - List files
-        run: |
-          echo "Current working directory: $(pwd)"
-          echo "Listing all files recursively:"
-          ls -R
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -32,7 +26,14 @@ jobs:
 
       - name: Check for Metadata Changes
         id: check
-        run: python scripts/check_metadata.py
+        # This command finds the script regardless of which folder it is in
+        run: |
+          SCRIPT_PATH=$(find . -name "check_metadata.py" | head -n 1)
+          if [ -z "$SCRIPT_PATH" ]; then
+            echo "Error: check_metadata.py not found in the repository!"
+            exit 1
+          fi
+          python "$SCRIPT_PATH"
         continue-on-error: true
 
       - name: Create Issue on Change
@@ -52,9 +53,10 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          # Check if the file exists before trying to add it
-          if [ -f metadata_reference.csv ]; then
-            git add metadata_reference.csv
+          # Find the reference file wherever the script created it
+          REF_PATH=$(find . -name "metadata_reference.csv" | head -n 1)
+          if [ -n "$REF_PATH" ]; then
+            git add "$REF_PATH"
             git commit -m "chore: update metadata reference file"
             git push
           else
