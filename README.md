@@ -19,7 +19,7 @@ Access high-resolution forecasts for **~5,600 points** across Switzerland—incl
     *   **Precipitation:** Probability and quantity.
     *   **Wind:** Speed, gusts, and direction.
     *   **Sky Conditions:** Sunshine duration, radiation, and cloud layers (low/medium/high).
-
+![MeteoSwiss Local Forecast Meteogram](images/meteogram.png)
 ---
 
 ## 🚀 Quick Start
