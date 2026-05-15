@@ -1,40 +1,70 @@
-import pandas as pd
-import requests
-import os
-import sys
+name: OGD Metadata Monitor
 
-# 1. Define URLs and Paths
-METADATA_URL = "https://data.geo.admin.ch/ch.meteoschweiz.ogd-local-forecasting/ogd-local-forecasting_meta_parameters.csv"
-REFERENCE_FILE = "metadata_reference.csv"
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Every Monday at midnight
+  workflow_dispatch: # Allow manual trigger
 
-def check_metadata():
-    print(f"Fetching current metadata from {METADATA_URL}...")
-    try:
-        # Fetch current metadata (using latin-1 as per MeteoSwiss OGD specs)
-        current_df = pd.read_csv(METADATA_URL, sep=';', encoding='latin-1')
-    except Exception as e:
-        print(f"Error fetching metadata: {e}")
-        sys.exit(1)
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
 
-    # 2. Check if reference file exists
-    if not os.path.exists(REFERENCE_FILE):
-        print(f"Reference file {REFERENCE_FILE} not found. Creating it now...")
-        current_df.to_csv(REFERENCE_FILE, index=False)
-        print("✅ Reference file created. Please commit this to the repo.")
-        # We exit with 1 so the GitHub Action knows it needs to COMMIT this new file
-        sys.exit(1)
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    # 3. Compare with existing reference
-    reference_df = pd.read_csv(REFERENCE_FILE)
-    
-    # Simple comparison (you can make this more complex if needed)
-    if current_df.equals(reference_df):
-        print("✅ No changes detected in metadata.")
-        sys.exit(0)
-    else:
-        print("⚠️ Metadata changes detected!")
-        current_df.to_csv(REFERENCE_FILE, index=False)
-        sys.exit(1)
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-if __name__ == "__main__":
-    check_metadata()
+      - name: Install dependencies
+        run: pip install pandas requests
+
+      - name: Check for Metadata Changes
+        id: check
+        run: |
+          # Find the script and print its location
+          SCRIPT_PATH=$(find . -name "check_metadata.py" | head -n 1)
+          if [ -z "$SCRIPT_PATH" ]; then
+            echo "❌ Error: check_metadata.py not found in the repository!"
+            exit 1
+          fi
+          echo "✅ Found script at: $SCRIPT_PATH"
+          
+          # Run the script
+          python "$SCRIPT_PATH"
+        continue-on-error: true
+
+      - name: Create Issue on Change
+        if: steps.check.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '⚠️ OGD Metadata Change Detected',
+              body: 'The OGD parameter metadata CSV has changed. This might require updates to the plot functions or parameter mappings in the notebooks.\n\nPlease review the changes and update the `metadata_reference.csv` in the repository.'
+            })
+
+      - name: Commit updated reference
+        if: steps.check.outcome == 'failure'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Find the reference file and print its location
+          REF_PATH=$(find . -name "metadata_reference.csv" | head -n 1)
+          
+          if [ -n "$REF_PATH" ]; then
+            echo "✅ Found reference file to commit at: $REF_PATH"
+            git add "$REF_PATH"
+            git commit -m "chore: update metadata reference file"
+            git push
+          else
+            echo "⚠️ No metadata_reference.csv found. If this is the first run, the script should have created it."
+          fi
