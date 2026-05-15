@@ -1,0 +1,51 @@
+name: OGD Metadata Monitor
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # Every Monday at midnight
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pandas requests
+
+      - name: Check for Metadata Changes
+        id: check
+        run: python scripts/check_metadata.py
+        continue-on-error: true
+
+      - name: Create Issue on Change
+        if: steps.check.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '⚠️ OGD Metadata Change Detected',
+              body: 'The OGD parameter metadata CSV has changed. This might require updates to the plot functions or parameter mappings in the notebooks.\n\nPlease review the changes and update the `metadata_reference.csv` in the repository.'
+            })
+
+      - name: Commit updated reference
+        if: steps.check.outcome == 'failure'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add metadata_reference.csv
+          git commit -m "chore: update metadata reference file"
+          git push
