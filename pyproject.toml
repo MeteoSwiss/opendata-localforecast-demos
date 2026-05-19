@@ -15,6 +15,7 @@ matplotlib = "^3.9.0"
 numpy = "^2.1.0"
 papermill = "^2.5"
 ipykernel = "^6.29"
+openpyxl = "^3.1.0"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.15.0"
