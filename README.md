@@ -19,14 +19,31 @@ Access high-resolution forecasts for **~5,600 points** across Switzerland—incl
     *   **Precipitation:** Probability and quantity.
     *   **Wind:** Speed, gusts, and direction.
     *   **Sky Conditions:** Sunshine duration, radiation, and cloud layers (low/medium/high).
+    *   **Daily Weather Summary Table:** A compact table with weather description, min/max temperature, and precipitation range for each forecast day. Weather descriptions are resolved from MeteoSwiss pictogram codes (available in DE/FR/IT/EN).
+
 ![MeteoSwiss Local Forecast Meteogram](images/meteogram.png)
+
+**Daily Weather Summary Table (example output):**
+
+| Date      | Weather                                    | T min (°C) | T max (°C) | Precip. (mm) |
+|-----------|--------------------------------------------|------------|------------|---------------|
+| Mon 19.05 | partly sunny, thick passing clouds         | 12.3       | 22.1       | 0–2           |
+| Tue 20.05 | very cloudy, light rain                    | 10.8       | 19.5       | 3–15          |
+| Wed 21.05 | high clouds                                | 11.1       | 21.3       | 0             |
+| Thu 22.05 | mostly sunny, some clouds                  | 12.5       | 23.0       | 0             |
+| Fri 23.05 | overcast, some rain showers                | 11.0       | 18.7       | 5–20          |
+| Sat 24.05 | sunny                                      | 10.2       | 24.1       | 0             |
+| Sun 25.05 | mostly sunny, some clouds                  | 11.8       | 25.3       | 0             |
+| Mon 26.05 | partly sunny, thick passing clouds         | 12.0       | 22.8       | 0–3           |
+| Tue 27.05 | mostly sunny, some clouds                  | 13.0       | 24.2       | 0             |
+
 ---
 
 ## 🚀 Quick Start
 
 1.  **Find your POI:** Open `poi_finder.ipynb` and search for your town (e.g., `"Zermatt"` or `"8001"`). Copy the resulting `POI = "..."` string.
 2.  **Generate Plot:** Open `meteogram.ipynb`, paste your POI code into **Cell 2**, and run all cells.
-3.  **Customize:** You can toggle panels (e.g., hide Radiation) by modifying the `PANEL_ORDER` list in the Configuration cell.
+3.  **Customize:** You can toggle panels (e.g., hide Radiation) by modifying the `PANEL_ORDER` list in the Configuration cell. Set `SHOW_SUMMARY_TABLE = False` to hide the daily weather summary table.
 
 ---
 
@@ -56,4 +73,4 @@ Clone the repository and install the dependencies:
 ```bash
 git clone https://github.com/MeteoSwiss/opendata-localforecast-demos.git
 cd opendata-localforecast-demos
-pip install httpx pandas matplotlib ipywidgets
+pip install httpx pandas matplotlib ipywidgets openpyxl
