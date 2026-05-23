@@ -1,4 +1,4 @@
-# 🌤️ MeteoSwiss Open Data: Local Forecast Demos
+## 🌤️ MeteoSwiss Open Data: Local Forecast Demos
 
 [![Run in RenkuLab](https://renkulab.io/renku-badge.svg)](https://renkulab.io/projects/meteoswiss/opendata-localforecast-demos)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -9,17 +9,19 @@ Access high-resolution forecasts for **~5,600 points** across Switzerland—incl
 
 ---
 
-## 📓 Included Notebooks
+## 🌤️ The Meteogram Notebook
+The `meteogram.ipynb` is an all-in-one tool designed for location discovery, automated data retrieval, and professional visualization.
+**Key Features:**
+*   **Integrated POI Search:** Find your location by name or ZIP code directly inside the notebook using an interactive search table.
+*   **9-Day Forecast Horizon:** High-resolution hourly data combined with daily summaries.
+*   **Metadata-Driven:** Automatically resolves units, labels, and groupings from official MeteoSwiss OGD metadata.
+*   **Daily Summary Table:** Includes weather pictograms and min/max temperature overviews.
+## 🚀 Quick Start
+1.  **Open `meteogram.ipynb`**.
+2.  **Search:** Use the interactive table in the **Configuration** cell to find your location (e.g., "Zermatt" or "8001").
+3.  **Set POI:** Copy the `point_id` and paste it into the `POI` variable.
+4.  **Run All:** Execute the notebook to generate your custom meteogram.
 
-1.  **`poi_finder.ipynb`** 🔍  
-    Search for a forecast location by name, PLZ, or station abbreviation. Use this to find the unique `POI` code required for the visualization.
-2.  **`meteogram.ipynb`** 🌤️  
-    Generate a comprehensive meteogram including:
-    *   **Temperature:** 2m temperature and dew point.
-    *   **Precipitation:** Probability and quantity.
-    *   **Wind:** Speed, gusts, and direction.
-    *   **Sky Conditions:** Sunshine duration, radiation, and cloud layers (low/medium/high).
-    *   **Daily Weather Summary Table:** A compact table with weather description, min/max temperature, and precipitation range for each forecast day. Weather descriptions are resolved from MeteoSwiss pictogram codes (available in DE/FR/IT/EN).
 
 ![MeteoSwiss Local Forecast Meteogram](images/meteogram.png)
 
