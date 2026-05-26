@@ -13,6 +13,8 @@ from datetime import timedelta
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import numpy as np
+from astral import LocationInfo
+from astral.sun import sun
 from matplotlib.gridspec import GridSpec
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
@@ -72,15 +74,26 @@ plt.rcParams.update({
 # Axis helpers
 # ---------------------------------------------------------------------------
 
-def add_day_night_shading(ax, local_tz):
-    """Shade night periods (before 06:00 and after 21:00) on a time axis."""
-    xlim = mdates.num2date(ax.get_xlim())
+def _get_sun_times(date, lat: float, lon: float, local_tz):
+    """Return (sunrise, sunset) for a given date and location."""
+    location = LocationInfo(latitude=lat, longitude=lon, timezone=str(local_tz))
+    s = sun(location.observer, date=date, tzinfo=local_tz)
+    return s["sunrise"], s["sunset"]
+
+
+def add_day_night_shading(ax, local_tz, lat: float, lon: float):
+    """Shade night periods using astronomical sunrise/sunset for the given coordinates."""
+    xlim    = mdates.num2date(ax.get_xlim())
     current = xlim[0].replace(hour=0, minute=0)
-    end = xlim[1]
+    end     = xlim[1]
     while current < end:
-        sunrise  = current.replace(hour=6,  minute=0)
-        sunset   = current.replace(hour=21, minute=0)
         next_day = current + timedelta(days=1)
+        try:
+            sunrise, sunset = _get_sun_times(current.date(), lat, lon, local_tz)
+        except Exception:
+            # Fallback to fixed times if astral fails (e.g. polar night/day edge cases)
+            sunrise = current.replace(hour=6,  minute=0)
+            sunset  = current.replace(hour=21, minute=0)
         ax.axvspan(current,  sunrise,  color=COLORS["night_bg"], alpha=0.3, zorder=0)
         ax.axvspan(sunrise,  sunset,   color=COLORS["day_bg"],   alpha=0.3, zorder=0)
         ax.axvspan(sunset,   next_day, color=COLORS["night_bg"], alpha=0.3, zorder=0)
@@ -320,6 +333,12 @@ def plot_meteogram(
     PANEL_ORDER = ["Temperature", "Precipitation", "Wind", "Sunshine", "Radiation", "Clouds"]
     selected_panels = panels or PANEL_ORDER
 
+    # Extract POI coordinates for sunrise/sunset calculation
+    lat_col = next((c for c in poi_row.index if "lat" in c.lower()), None)
+    lon_col = next((c for c in poi_row.index if "lon" in c.lower()), None)
+    poi_lat = float(poi_row[lat_col]) if lat_col else 46.8   # fallback: centre of Switzerland
+    poi_lon = float(poi_row[lon_col]) if lon_col else  8.2
+
     # Map panel names to bound plot functions
     panel_functions = {
         "Temperature":   [lambda ax: plot_temperature(ax, df_hourly, df_daily, param_units, poi_row)],
@@ -361,7 +380,7 @@ def plot_meteogram(
     for idx, (ax, func, is_daily) in enumerate(axes_all):
         func(ax)
         if not is_daily and not df_hourly.empty:
-            add_day_night_shading(ax, local_tz)
+            add_day_night_shading(ax, local_tz, lat=poi_lat, lon=poi_lon)
             is_last_hourly = not any(not d for _, _, d in axes_all[idx + 1:])
             format_time_axis(ax, local_tz, is_bottom=is_last_hourly)
             ax.set_xlim(df_hourly.index[0], df_hourly.index[-1])
