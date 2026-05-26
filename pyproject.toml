@@ -16,6 +16,7 @@ papermill = "^2.5"
 ipykernel = "^6.29"
 openpyxl = "^3.1.0"
 itables = "^2.0"
+astral = "^3.2"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.15.0"
