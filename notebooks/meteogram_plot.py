@@ -59,15 +59,17 @@ COLORS = {
 # ---------------------------------------------------------------------------
 
 plt.rcParams.update({
-    "figure.dpi":       120,
-    "figure.facecolor": "white",
-    "axes.grid":        True,
-    "axes.grid.which":  "major",
-    "grid.alpha":       0.3,
-    "grid.linestyle":   "--",
-    "font.size":        9,
-    "axes.titlesize":   10,
-    "axes.labelsize":   9,
+    "figure.dpi":        120,
+    "figure.facecolor":  "white",
+    "axes.grid":         True,
+    "axes.grid.which":   "major",
+    "grid.alpha":        0.3,
+    "grid.linestyle":    "--",
+    "font.size":         9,
+    "axes.titlesize":    10,
+    "axes.labelsize":    9,
+    "legend.framealpha": 0.6,
+    "legend.fontsize":   7,
 })
 
 # ---------------------------------------------------------------------------
@@ -150,10 +152,9 @@ def plot_temperature(ax, df_hourly, df_daily, param_units, poi_row):
         ax2.set_ylabel(param_units.get("zprfr0hs", "m"))
         lines = ax.get_legend_handles_labels()
         lines2 = ax2.get_legend_handles_labels()
-        ax.legend(lines[0] + lines2[0], lines[1] + lines2[1],
-                  loc="best", fontsize=7, ncol=5)
+        ax.legend(lines[0] + lines2[0], lines[1] + lines2[1], ncol=5, loc="best")
     else:
-        ax.legend(loc="upper right", fontsize=7, ncol=4)
+        ax.legend(ncol=4, loc="best")
 
     ax.set_title("Temperature")
 
@@ -169,14 +170,20 @@ def plot_precipitation(ax, df_hourly, param_units):
                         df_hourly["rreq10h0"], df_hourly["rreq90h0"],
                         color=COLORS["precip_q_fill"], alpha=0.4, label="Q10–Q90")
     if "rp0003i0" in df_hourly:
-        ax2.plot(df_hourly.index, df_hourly["rp0003i0"],
-                 color=COLORS["precip_prob"], lw=1, ls="--", label="Prob. precip")
+        (prob_line,) = ax2.plot(df_hourly.index, df_hourly["rp0003i0"],
+                 color=COLORS["precip_prob"], lw=1, ls="--")
         ax2.set_ylabel(param_units.get("rp0003i0", "%"))
         ax2.set_ylim(0, 105)
-        ax2.legend(loc="upper left", fontsize=7)
+    else:
+        prob_line = None
     ax.set_ylabel(param_units.get("rre150h0", "mm"))
     ax.set_title("Precipitation (hourly)")
-    ax.legend(loc="upper right", fontsize=7)
+    # Build a single legend on ax combining both axes — ax2 never gets its own
+    handles, labels = ax.get_legend_handles_labels()
+    if prob_line is not None:
+        handles.append(prob_line)
+        labels.append("Prob. precip")
+    ax.legend(handles, labels, ncol=3, loc="upper right")
 
 
 def plot_daily_precip(ax, df_daily, df_hourly, param_units, local_tz):
@@ -204,7 +211,7 @@ def plot_daily_precip(ax, df_daily, df_hourly, param_units, local_tz):
     ax.legend(handles=[
         Patch(facecolor=COLORS["precip_bar"], alpha=0.7, label="Median"),
         Line2D([0], [0], color="steelblue", lw=1.5, label="Q10–Q90"),
-    ], loc="upper right", fontsize=7, ncol=2)
+    ], ncol=2, loc="upper right")
 
     ax.set_ylim(bottom=0)
     ax.set_ylabel(param_units.get("rka150p0", "mm"))
@@ -244,7 +251,7 @@ def plot_wind(ax, df_hourly, param_units):
 
     ax.set_ylabel(param_units.get("fu3010h0", "km/h"))
     ax.set_title("Wind")
-    ax.legend(loc="upper right", fontsize=7, ncol=4)
+    ax.legend(ncol=4, loc="upper center")
 
 
 def plot_sunshine(ax, df_hourly, param_units):
@@ -258,7 +265,7 @@ def plot_sunshine(ax, df_hourly, param_units):
     ax.set_xlim(df_hourly.index[0], df_hourly.index[-1])
     ax.set_ylabel(param_units.get("sre000h0", "min"))
     ax.set_title("Sunshine")
-    ax.legend(loc="upper right", fontsize=7)
+    ax.legend(loc="upper right")
 
 
 def plot_radiation(ax, df_hourly, param_units):
@@ -273,7 +280,7 @@ def plot_radiation(ax, df_hourly, param_units):
     ax.set_xlim(df_hourly.index[0], df_hourly.index[-1])
     ax.set_ylabel(param_units.get("gre000h0", "W/m²"))
     ax.set_title("Radiation")
-    ax.legend(loc="upper right", fontsize=7)
+    ax.legend(loc="upper right")
 
 
 def plot_clouds(ax, df_hourly):
@@ -295,7 +302,7 @@ def plot_clouds(ax, df_hourly):
         ax.set_ylim(0, 100)
     ax.set_ylabel("%")
     ax.set_title("Clouds")
-    ax.legend(loc="upper right", fontsize=7, ncol=3)
+    ax.legend(ncol=3, loc="lower right")
 
 # ---------------------------------------------------------------------------
 # Main entry point
