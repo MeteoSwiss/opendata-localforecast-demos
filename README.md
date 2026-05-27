@@ -1,6 +1,6 @@
 ## 🌤️ MeteoSwiss Open Data: Local Forecast Demos
 
-[![Run in RenkuLab](https://renkulab.io/renku-badge.svg)](https://renkulab.io/projects/meteoswiss/opendata-localforecast-demos)
+Click here and try it now! [![launch - renku](https://renkulab.io/renku-badge.svg)](https://renkulab.io/p/meteoswiss/opendata-local-weatherforecast-demo/sessions/01KSM0G2KFE1DJWQ35E72EXV4C/start)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This repository provides Jupyter notebook examples for accessing and visualizing local weather forecasts from MeteoSwiss, released through Switzerland's **Open Government Data (OGD)** initiative.
