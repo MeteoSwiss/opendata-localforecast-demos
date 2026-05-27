@@ -46,6 +46,7 @@ jobs:
             poetry run papermill \
               "$notebook" \
               "executed_notebooks/$(basename "$notebook")"
+              --cwd notebooks
           done
 
       # Step 6: Upload generated meteogram image as an artifact
