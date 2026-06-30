@@ -1,0 +1,12 @@
+CLAUDE.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Executed notebooks output
+executed_notebooks/
