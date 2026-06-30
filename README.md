@@ -99,5 +99,9 @@ Click the **"Run in RenkuLab"** badge above to launch a ready-to-use environment
 ```bash
 git clone https://github.com/MeteoSwiss/opendata-localforecast-demos.git
 cd opendata-localforecast-demos
-pip install httpx pandas matplotlib openpyxl itables astral
+python3 -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install poetry
+poetry install
+poetry run jupyter lab
 ```
