@@ -3,14 +3,13 @@ name: OGD Metadata Monitor
 on:
   schedule:
     - cron: '0 0 * * 1' # Every Monday at midnight
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch:
 
 jobs:
   monitor:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-      contents: write
 
     steps:
       - name: Checkout code
@@ -22,24 +21,14 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install pandas requests
+        run: pip install httpx pandas
 
-      - name: Check for Metadata Changes
+      - name: Check data format
         id: check
-        run: |
-          # Find the script and print its location
-          SCRIPT_PATH=$(find . -name "check_metadata.py" | head -n 1)
-          if [ -z "$SCRIPT_PATH" ]; then
-            echo "❌ Error: check_metadata.py not found in the repository!"
-            exit 1
-          fi
-          echo "✅ Found script at: $SCRIPT_PATH"
-          
-          # Run the script
-          python "$SCRIPT_PATH"
+        run: python scripts/check_data_format.py
         continue-on-error: true
 
-      - name: Create Issue on Change
+      - name: Open issue on failure
         if: steps.check.outcome == 'failure'
         uses: actions/github-script@v7
         with:
@@ -47,24 +36,6 @@ jobs:
             github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: '⚠️ OGD Metadata Change Detected',
-              body: 'The OGD parameter metadata CSV has changed. This might require updates to the plot functions or parameter mappings in the notebooks.\n\nPlease review the changes and update the `metadata_reference.csv` in the repository.'
+              title: '⚠️ OGD data format change detected',
+              body: 'The weekly format check (`scripts/check_data_format.py`) failed.\n\nThis likely means MeteoSwiss changed a column name or the STAC asset key pattern.\n\nRun the script locally to see which check failed, then update the notebook and `check_data_format.py` to match the new format.'
             })
-
-      - name: Commit updated reference
-        if: steps.check.outcome == 'failure'
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          
-          # Find the reference file and print its location
-          REF_PATH=$(find . -name "metadata_reference.csv" | head -n 1)
-          
-          if [ -n "$REF_PATH" ]; then
-            echo "✅ Found reference file to commit at: $REF_PATH"
-            git add "$REF_PATH"
-            git commit -m "chore: update metadata reference file"
-            git push
-          else
-            echo "⚠️ No metadata_reference.csv found. If this is the first run, the script should have created it."
-          fi
