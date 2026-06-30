@@ -27,6 +27,22 @@ Access high-resolution forecasts for **~5,600 points** across Switzerland — in
 - **Metadata-driven** — units, labels, and panel groupings resolved automatically from OGD metadata
 - **Accurate day/night shading** — sunrise and sunset computed per location using astronomical calculations
 
+### What the meteogram shows
+
+The chart is divided into up to six panels, each covering a different aspect of the forecast:
+
+| Panel | What is shown |
+|---|---|
+| **Temperature** | Hourly median temperature at 2 m (°C) with a Q10–Q90 uncertainty band; daily minimum and maximum markers; freezing-level altitude (m a.s.l.) on a secondary axis |
+| **Precipitation (hourly)** | Hourly precipitation amounts (mm) as bars with a Q10–Q90 uncertainty band; precipitation probability (%) as a dashed line on a secondary axis |
+| **Precipitation (daily)** | Daily total precipitation (mm) as bars with Q10–Q90 whiskers |
+| **Wind** | 10-minute mean wind speed and gusts (km/h) with Q10–Q90 uncertainty bands; wind direction shown as arrows every 3 hours |
+| **Sunshine** | Hourly sunshine duration (min) |
+| **Radiation** | Global and diffuse solar radiation (W/m²) |
+| **Clouds** | Low, mid, and high cloud cover (%) as a stacked area chart |
+
+All hourly panels share the same time axis with day/night shading. You can display any subset of panels by setting `PANELS = ["Temperature", "Wind"]` in the configuration cell.
+
 The plotting code lives in `meteogram_plot.py`, alongside the notebook. The notebook itself focuses on the data and the API; open the module only if you want to customise the chart.
 
 ![MeteoSwiss Local Forecast Meteogram](images/meteogram.png)
