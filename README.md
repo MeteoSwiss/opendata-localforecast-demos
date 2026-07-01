@@ -1,6 +1,5 @@
 ## 🌤️ MeteoSwiss Open Data: Local Forecast Demos
 
-Click here and try it now! [![launch - renku](https://renkulab.io/renku-badge.svg)](https://renkulab.io/p/meteoswiss/opendata-local-weatherforecast-demo/sessions/01KSM0G2KFE1DJWQ35E72EXV4C/start)
 [![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 This repository provides Jupyter notebook examples for accessing and visualizing local weather forecasts from MeteoSwiss, released through Switzerland's **Open Government Data (OGD)** initiative.
@@ -65,10 +64,21 @@ The plotting code lives in `meteogram_plot.py`, alongside the notebook. The note
 
 ## 🚀 Quick Start
 
-1. **Open `meteogram.ipynb`**
-2. **Find your location** — use the interactive search table in section 1 to find your town (e.g. `"Zermatt"` or `"8001"`) and copy the `point_id`
-3. **Set your POI** — paste the `point_id` into the `POI` variable in the configuration cell
-4. **Run all cells**
+### Try it instantly — no installation needed
+
+[![launch - renku](https://renkulab.io/renku-badge.svg)](https://renkulab.io/p/meteoswiss/opendata-local-weatherforecast-demo/sessions/01KSM0G2KFE1DJWQ35E72EXV4C/start)
+
+Click the badge above to open the notebook in a ready-to-use cloud environment. Once the session has started (1–2 minutes):
+
+1. In the file browser on the left, navigate to `opendata-local-weatherforecast-demos/notebooks/`
+2. Open `Meteogram.ipynb`
+3. Run all cells: **Run → Run All Cells**
+
+### Using the notebook
+
+1. **Find your location** — use the interactive search table in section 1 to find your town (e.g. `"Zermatt"` or `"8001"`) and copy the `point_id`
+2. **Set your POI** — paste the `point_id` into the configuration cell
+3. **Run all cells**
 
 To customise the output, edit the configuration cell:
 - `PANELS = ["Temperature", "Wind"]` — show only selected panels
@@ -105,12 +115,7 @@ plot_meteogram(df_hourly, df_daily, ...)
 
 ---
 
-## 💻 Installation
-
-### Option 1: Cloud (recommended)
-Click the **"Run in RenkuLab"** badge above to launch a ready-to-use environment in your browser. No local setup needed.
-
-### Option 2: Local
+## 💻 Local Installation
 
 ```bash
 git clone https://github.com/MeteoSwiss/opendata-localforecast-demos.git
