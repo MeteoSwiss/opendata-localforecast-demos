@@ -1,6 +1,7 @@
 # Local symlinks to personal Claude config (github.com/lionel-moret/my-claude-config)
 .claude/skills
 .claude/memory
+CLAUDE.md
 
 # Python
 __pycache__/
