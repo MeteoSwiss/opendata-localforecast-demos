@@ -62,6 +62,18 @@ The plotting code lives in `meteogram_plot.py`, alongside the notebook. The note
 
 ---
 
+## ☀️ The Solar Production Notebook
+
+`notebooks/SolarProduction.ipynb` shows a practical downstream use case for the same OGD data: estimating expected PV (solar panel) output from the 9-day global radiation forecast. It reuses the fetch/parse pipeline from the Meteogram notebook, then feeds `gre000h0` into a simple physical model — `power = capacity_kwp × (radiation / 1000) × derate_factor` — for an illustrative rooftop system.
+
+**Note:** this is a deliberately simple, illustrative model (no panel tilt/orientation, temperature derating, or shading) meant to demonstrate how OGD forecast data can feed a downstream model — not a calibrated PV yield tool. For production-grade PV forecasting, consider [`pvlib`](https://pvlib-python.readthedocs.io/).
+
+The plotting code lives in `notebooks/solar_plot.py`, following the same notebook/plotting-module split as the Meteogram demo.
+
+![MeteoSwiss Solar Production Estimate](images/solar_production.png)
+
+---
+
 ## 🚀 Quick Start
 
 ### Try it instantly — no installation needed
@@ -92,7 +104,7 @@ To customise the output, edit the configuration cell:
 Forecast data is fetched directly from the [Federal Geodata Infrastructure STAC API](https://data.geo.admin.ch/api/stac/v1).
 
 - **Collection:** `ch.meteoschweiz.ogd-local-forecasting`
-- **Update cycle:** Daily batch at ~04:00 UTC, with 6-hourly refreshes
+- **Update cycle:** Updated hourly
 - **Horizon:** 9 days (D+0 to D+8)
 
 ### Repository structure
