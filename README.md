@@ -10,7 +10,7 @@ Access high-resolution forecasts for **~5,600 points** across Switzerland — in
 
 ## 🌤️ The Meteogram Notebook
 
-`meteogram.ipynb` walks you through the full workflow of accessing MeteoSwiss OGD forecast data, from location discovery to visualization. It is structured as a story with one concept per section:
+`notebooks/Meteogram.ipynb` walks you through the full workflow of accessing MeteoSwiss OGD forecast data, from location discovery to visualization. It is structured as a story with one concept per section:
 
 | Section | What you learn |
 |---|---|
@@ -83,7 +83,7 @@ The plotting code lives in `notebooks/solar_plot.py`, following the same noteboo
 Click the badge above to open the notebook in a ready-to-use cloud environment. Once the session has started (1–2 minutes):
 
 1. In the file browser on the left, navigate to `opendata-local-weatherforecast-demos/notebooks/`
-2. Open `Meteogram.ipynb`
+2. Open `Meteogram.ipynb` (or `SolarProduction.ipynb` for the PV output demo)
 3. Run all cells: **Run → Run All Cells**
 
 ### Using the notebook
@@ -110,8 +110,11 @@ Forecast data is fetched directly from the [Federal Geodata Infrastructure STAC 
 ### Repository structure
 
 ```
-meteogram.ipynb       # Main notebook — data access and API walkthrough
-meteogram_plot.py     # Plotting module — all matplotlib code lives here
+notebooks/
+  Meteogram.ipynb       # Main notebook — data access and API walkthrough
+  meteogram_plot.py     # Plotting module — all matplotlib code lives here
+  SolarProduction.ipynb # Downstream demo — PV output estimate from the radiation forecast
+  solar_plot.py         # Plotting module for the Solar Production notebook
 ```
 
 ### Architecture
