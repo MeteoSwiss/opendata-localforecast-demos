@@ -14,3 +14,7 @@ __pycache__/
 
 # Executed notebooks output
 executed_notebooks/
+
+# Notebook-generated output images (regenerated on each run)
+notebooks/meteogram.png
+notebooks/solar_production.png
