@@ -64,9 +64,9 @@ The plotting code lives in `meteogram_plot.py`, alongside the notebook. The note
 
 ## ☀️ The Solar Production Notebook
 
-`notebooks/SolarProduction.ipynb` shows a practical downstream use case for the same OGD data: estimating expected PV (solar panel) output from the 9-day global radiation forecast. It reuses the fetch/parse pipeline from the Meteogram notebook, then feeds `gre000h0` (Total downward shortwave radiation) into a simple physical model — `power = capacity_kwp × (radiation / 1000) × derate_factor` — for an illustrative rooftop system.
+`notebooks/SolarProduction.ipynb` shows a practical downstream use case for the same OGD data: estimating expected PV (solar panel) output from the 9-day radiation forecast. It reuses the fetch/parse pipeline from the Meteogram notebook, then feeds `gre000h0` (global radiation), `ods000h0` (diffuse radiation), and `tre200h0` (2m temperature) into a [`pvlib`](https://pvlib-python.readthedocs.io/)-based model: solar position and panel tilt/azimuth determine plane-of-array irradiance, panel temperature derates the output, and `pvlib.pvsystem.pvwatts_dc()` converts that into DC power for an illustrative rooftop system.
 
-**Note:** this is a deliberately simple, illustrative model (no panel tilt/orientation, temperature derating, or shading) meant to demonstrate how OGD forecast data can feed a downstream model — not a calibrated PV yield tool. For production-grade PV forecasting, consider [`pvlib`](https://pvlib-python.readthedocs.io/).
+**Note:** the system itself is illustrative (a generic capacity/tilt/azimuth, not a real module datasheet), but the underlying physics — solar position, irradiance transposition onto the panel plane, and temperature-dependent PVWatts output — is handled by `pvlib` rather than a flat radiation-ratio approximation.
 
 The plotting code lives in `notebooks/solar_plot.py`, following the same notebook/plotting-module split as the Meteogram demo.
 
