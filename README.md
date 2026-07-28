@@ -78,23 +78,10 @@ The plotting code lives in `notebooks/solar_plot.py`, following the same noteboo
 
 ### Try it instantly — no installation needed
 
-[![launch - renku](https://renkulab.io/renku-badge.svg)](https://renkulab.io/p/meteoswiss/opendata-local-weatherforecast-demo/sessions/01KSM0G2KFE1DJWQ35E72EXV4C/start)
-
-Click the badge above to open the notebook in a ready-to-use cloud environment. Once the session has started (1–2 minutes):
-
-1. In the file browser on the left, navigate to `opendata-local-weatherforecast-demos/notebooks/`
-2. Open `Meteogram.ipynb` (or `SolarProduction.ipynb` for the PV output demo)
-3. Run all cells: **Run → Run All Cells**
-
-### Using the notebook
-
-1. **Find your location** — use the interactive search table in section 1 to find your town (e.g. `"Zermatt"` or `"8001"`) and copy the `point_id`
-2. **Set your POI** — paste the `point_id` into the configuration cell
-3. **Run all cells**
-
-To customise the output, edit the configuration cell:
-- `PANELS = ["Temperature", "Wind"]` — show only selected panels
-- `LANG = "de"` — switch labels to German, French, or Italian
+1. Click the badge [![launch - renku](https://renkulab.io/renku-badge.svg)](https://renkulab.io/p/meteoswiss/opendata-local-weatherforecast-demo/sessions/01KSM0G2KFE1DJWQ35E72EXV4C/start) to open the notebook in a ready-to-use cloud environment. Wait for the session to start (1–5 minutes).
+2. In the file browser on the left, navigate to `opendata-local-weatherforecast-demos/notebooks/`
+3. Open `Meteogram.ipynb` (or `SolarProduction.ipynb` for the PV output demo)
+4. Execute each cell of the notebook you chose.
 
 ---
 
