@@ -78,7 +78,7 @@ The plotting code lives in `notebooks/solar_plot.py`, following the same noteboo
 
 ### Try it instantly — no installation needed
 
-1. Click the badge [![launch - renku](https://renkulab.io/renku-badge.svg)](https://renkulab.io/p/meteoswiss/opendata-local-weatherforecast-demo/sessions/01KSM0G2KFE1DJWQ35E72EXV4C/start) to open the notebook in a ready-to-use cloud environment. Wait for the session to start (1–5 minutes).
+1. Click the badge [![launch - renku](https://renkulab.io/renku-badge.svg)](https://renkulab.io/p/meteoswiss/opendata-local-weatherforecast-demo/sessions/01KSM0G2KFE1DJWQ35E72EXV4C/start) (ctrl/cmd-click to open it in a new tab) to open the notebook in a ready-to-use cloud environment. Wait for the session to start (1–5 minutes).
 2. In the file browser on the left, navigate to `opendata-local-weatherforecast-demos/notebooks/`
 
    ![Navigate to the project folder](images/notebook_1.png)
@@ -88,9 +88,9 @@ The plotting code lives in `notebooks/solar_plot.py`, following the same noteboo
 
    ![Open a notebook](images/notebook_3.png)
 
-4. Execute each cell of the notebook you chose.
+4. Follow the steps in the notebook you chose.
 
-   ![Execute each cell](images/notebook_4.png)
+New to Jupyter notebooks? See the [Jupyter documentation](https://docs.jupyter.org/en/latest/) for an introduction.
 
 ---
 
