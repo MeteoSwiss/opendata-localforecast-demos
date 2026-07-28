@@ -90,7 +90,7 @@ The plotting code lives in `notebooks/solar_plot.py`, following the same noteboo
 
 4. Follow the steps in the notebook you chose.
 
-New to Jupyter notebooks? See the [Jupyter documentation](https://docs.jupyter.org/en/latest/) for an introduction.
+New to Jupyter notebooks? See the [Jupyter documentation](https://jupyter-notebook.readthedocs.io/en/latest/) for an introduction.
 
 ---
 
