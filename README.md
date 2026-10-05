@@ -111,6 +111,8 @@ notebooks/
   meteogram_plot.py     # Plotting module — all matplotlib code lives here
   SolarProduction.ipynb # Downstream demo — PV output estimate from the radiation forecast
   solar_plot.py         # Plotting module for the Solar Production notebook
+scripts/
+  check_data_format.py  # Verifies the OGD data still matches the format the notebooks expect
 ```
 
 ### Architecture
