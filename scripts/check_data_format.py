@@ -39,6 +39,8 @@ REQUIRED_META_COLS = {
     "parameter_description_de", "parameter_description_fr",
     "parameter_description_it", "parameter_description_en",
 }
+# Pictogram parameters the meteogram's Weather panel and summary table rely on
+REQUIRED_PARAMS = {"jp2000d0", "jww003i0"}
 REQUIRED_POI_COLS = {
     "point_id", "point_type_id", "point_name",
     "postal_code", "point_type_en", "station_abbr",
@@ -77,6 +79,10 @@ try:
     added = actual - REQUIRED_META_COLS
     ok("HTTP 200 + latin-1/semicolon parseable")
     check("Required columns present", not missing, f"missing: {sorted(missing)}")
+    if "parameter_shortname" in actual:
+        missing_params = REQUIRED_PARAMS - set(meta_df["parameter_shortname"])
+        check("Pictogram parameters listed (jp2000d0, jww003i0)", not missing_params,
+              f"missing: {sorted(missing_params)}")
     if added:
         print(f"     ℹ  New columns (no action needed): {sorted(added)}")
     print(f"     rows={len(meta_df)}  cols={len(actual)}")
