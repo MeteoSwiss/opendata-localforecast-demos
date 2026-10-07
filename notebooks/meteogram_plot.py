@@ -13,11 +13,15 @@ from datetime import timedelta
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 from astral import LocationInfo
 from astral.sun import sun
 from matplotlib.gridspec import GridSpec
 from matplotlib.lines import Line2D
+from matplotlib.offsetbox import AnnotationBbox, OffsetImage
 from matplotlib.patches import Patch
+
+from pictograms import load_icon
 
 # ---------------------------------------------------------------------------
 # Color palette
@@ -118,6 +122,42 @@ def format_time_axis(ax, local_tz, is_bottom=False):
 # Individual panel plots
 # ---------------------------------------------------------------------------
 
+def _place_icon(ax, x, y, code, zoom):
+    """Draw the pictogram for `code` centred at (x, y); skip codes without an icon."""
+    icon = load_icon(code)
+    if icon is not None:
+        ax.add_artist(AnnotationBbox(OffsetImage(icon, zoom=zoom), (x, y),
+                                     frameon=False, pad=0, zorder=3))
+
+
+def plot_pictograms(ax, df_hourly, df_daily):
+    """Weather panel: one daily pictogram per day (top row) above the 3-hourly pictograms."""
+    start, end = df_hourly.index[0], df_hourly.index[-1]
+
+    # Daily symbol (jp2000d0) is valid for the daytime period: place it at noon
+    if "jp2000d0" in df_daily:
+        for day, code in df_daily["jp2000d0"].dropna().items():
+            noon = day + pd.Timedelta(hours=12)
+            if start <= noon <= end:
+                _place_icon(ax, mdates.date2num(noon), 0.72, code, zoom=0.42)
+
+    # 3-hourly symbol (jww003i0) is published every hour as a rolling value over the
+    # preceding 3 hours: keep the non-overlapping windows ending at 00, 03, ..., 21 local
+    # time and centre each icon in its window
+    if "jww003i0" in df_hourly:
+        codes = df_hourly["jww003i0"].dropna()
+        for t, code in codes[codes.index.hour % 3 == 0].items():
+            mid = t - pd.Timedelta(minutes=90)
+            if start <= mid <= end:
+                _place_icon(ax, mdates.date2num(mid), 0.24, code, zoom=0.2)
+
+    ax.set_xlim(start, end)
+    ax.set_ylim(0, 1)
+    ax.set_yticks([])
+    ax.grid(False)
+    ax.set_title("Weather (daily / 3-hourly)")
+
+
 def plot_temperature(ax, df_hourly, df_daily, param_units, poi_row):
     """Temperature panel: median + Q10/Q90 band + daily Tmin/Tmax + 0°C level."""
     if "tre200h0" in df_hourly:
@@ -128,7 +168,7 @@ def plot_temperature(ax, df_hourly, df_daily, param_units, poi_row):
                         df_hourly["treq10h0"], df_hourly["treq90h0"],
                         color=COLORS["temp_q_fill"], alpha=0.5, label="Q10–Q90")
 
-    dates_noon = df_daily.index + __import__("pandas").Timedelta(hours=12)
+    dates_noon = df_daily.index + pd.Timedelta(hours=12)
     if "tre200pn" in df_daily:
         ax.scatter(dates_noon, df_daily["tre200pn"],
                    color=COLORS["temp_tmin"], marker="v", s=30, zorder=5, label="Tmin")
@@ -188,7 +228,6 @@ def plot_precipitation(ax, df_hourly, param_units):
 
 def plot_daily_precip(ax, df_daily, df_hourly, param_units, local_tz):
     """Daily precipitation: median bars + Q10/Q90 whiskers."""
-    import pandas as pd
     dates_noon = df_daily.index + pd.Timedelta(hours=12)
     positions  = mdates.date2num(dates_noon)
 
@@ -256,7 +295,6 @@ def plot_wind(ax, df_hourly, param_units):
 
 def plot_sunshine(ax, df_hourly, param_units):
     """Sunshine panel: hourly duration bars."""
-    import pandas as pd
     if "sre000h0" in df_hourly:
         ax.bar(df_hourly.index - pd.Timedelta(minutes=30),
                df_hourly["sre000h0"], width=1/24,
@@ -337,7 +375,7 @@ def plot_meteogram(
     save_path   : str           File path for the saved PNG
     """
 
-    PANEL_ORDER = ["Temperature", "Precipitation", "Wind", "Sunshine", "Radiation", "Clouds"]
+    PANEL_ORDER = ["Pictograms", "Temperature", "Precipitation", "Wind", "Sunshine", "Radiation", "Clouds"]
     selected_panels = panels or PANEL_ORDER
 
     # Extract POI coordinates for sunrise/sunset calculation
@@ -348,6 +386,7 @@ def plot_meteogram(
 
     # Map panel names to bound plot functions
     panel_functions = {
+        "Pictograms":    [lambda ax: plot_pictograms(ax, df_hourly, df_daily)],
         "Temperature":   [lambda ax: plot_temperature(ax, df_hourly, df_daily, param_units, poi_row)],
         "Precipitation": [
             lambda ax: plot_precipitation(ax, df_hourly, param_units),
@@ -362,14 +401,16 @@ def plot_meteogram(
     # daily_flags tracks which axes use the independent daily x-axis
     funcs_flat = []
     daily_flags = []
+    height_ratios = []
     for panel in selected_panels:
         for i, func in enumerate(panel_functions.get(panel, [])):
             funcs_flat.append(func)
             daily_flags.append(panel == "Precipitation" and i == 1)
+            height_ratios.append(0.55 if panel == "Pictograms" else 1.0)
 
     n_axes = len(funcs_flat)
-    fig = plt.figure(figsize=(14, 2.8 * n_axes))
-    gs  = GridSpec(n_axes, 1, figure=fig)
+    fig = plt.figure(figsize=(14, 2.8 * sum(height_ratios)))
+    gs  = GridSpec(n_axes, 1, figure=fig, height_ratios=height_ratios)
 
     ax_first_hourly = None
     axes_all = []

@@ -18,20 +18,22 @@ Access high-resolution forecasts for **~5,600 points** across Switzerland — in
 | 2 · Explore parameters | What MeteoSwiss publishes and how parameters are grouped |
 | 3 · Download the data | How to query the STAC API and parse the CSV files |
 | 4 · Visualise | How to render a 9-day meteogram |
-| 5 · Daily summary | How pictogram codes map to weather descriptions |
+| 5 · Daily summary | How pictogram codes map to weather icons and descriptions |
 
 **Key features:**
 - **Integrated POI search** — find your location by name or ZIP code directly in the notebook
 - **9-day forecast horizon** — hourly data combined with daily summaries
 - **Metadata-driven** — units, labels, and panel groupings resolved automatically from OGD metadata
 - **Accurate day/night shading** — sunrise and sunset computed per location using astronomical calculations
+- **Weather pictograms** — daily and 3-hourly weather icons, with night variants, in the meteogram and the summary table
 
 ### What the meteogram shows
 
-The chart is divided into up to six panels, each covering a different aspect of the forecast:
+The chart is divided into up to seven panels, each covering a different aspect of the forecast:
 
 | Panel | What is shown |
 |---|---|
+| **Weather** | MeteoSwiss weather pictograms: one daily icon per day (`jp2000d0`, daytime) above 3-hourly icons (`jww003i0`), with moon icons for night-time periods |
 | **Temperature** | Hourly median temperature at 2 m (°C) with a Q10–Q90 uncertainty band; daily minimum and maximum markers; freezing-level altitude (m a.s.l.) on a secondary axis |
 | **Precipitation (hourly)** | Hourly precipitation amounts (mm) as bars with a Q10–Q90 uncertainty band; precipitation probability (%) as a dashed line on a secondary axis |
 | **Precipitation (daily)** | Daily total precipitation (mm) as bars with Q10–Q90 whiskers |
@@ -48,17 +50,19 @@ The plotting code lives in `meteogram_plot.py`, alongside the notebook. The note
 
 **Daily Weather Summary Table (example output):**
 
-| Date      | Weather                            | T min (°C) | T max (°C) | Precip. (mm) |
-|-----------|------------------------------------|------------|------------|--------------|
-| Mon 19.05 | partly sunny, thick passing clouds | 12.3       | 22.1       | 0–2          |
-| Tue 20.05 | very cloudy, light rain            | 10.8       | 19.5       | 3–15         |
-| Wed 21.05 | high clouds                        | 11.1       | 21.3       | 0            |
-| Thu 22.05 | mostly sunny, some clouds          | 12.5       | 23.0       | 0            |
-| Fri 23.05 | overcast, some rain showers        | 11.0       | 18.7       | 5–20         |
-| Sat 24.05 | sunny                              | 10.2       | 24.1       | 0            |
-| Sun 25.05 | mostly sunny, some clouds          | 11.8       | 25.3       | 0            |
-| Mon 26.05 | partly sunny, thick passing clouds | 12.0       | 22.8       | 0–3          |
-| Tue 27.05 | mostly sunny, some clouds          | 13.0       | 24.2       | 0            |
+| Date      |    | Weather                            | T min (°C) | T max (°C) | Precip. (mm) |
+|-----------|----|------------------------------------|------------|------------|--------------|
+| Mon 19.05 | <img src="notebooks/icons/png/64/3.png" width="24"> | partly sunny, thick passing clouds | 12.3       | 22.1       | 0–2          |
+| Tue 20.05 | <img src="notebooks/icons/png/64/14.png" width="24"> | very cloudy, light rain            | 10.8       | 19.5       | 3–15         |
+| Wed 21.05 | <img src="notebooks/icons/png/64/26.png" width="24"> | high clouds                        | 11.1       | 21.3       | 0            |
+| Thu 22.05 | <img src="notebooks/icons/png/64/2.png" width="24"> | mostly sunny, some clouds          | 12.5       | 23.0       | 0            |
+| Fri 23.05 | <img src="notebooks/icons/png/64/9.png" width="24"> | overcast, some rain showers        | 11.0       | 18.7       | 5–20         |
+| Sat 24.05 | <img src="notebooks/icons/png/64/1.png" width="24"> | sunny                              | 10.2       | 24.1       | 0            |
+| Sun 25.05 | <img src="notebooks/icons/png/64/2.png" width="24"> | mostly sunny, some clouds          | 11.8       | 25.3       | 0            |
+| Mon 26.05 | <img src="notebooks/icons/png/64/3.png" width="24"> | partly sunny, thick passing clouds | 12.0       | 22.8       | 0–3          |
+| Tue 27.05 | <img src="notebooks/icons/png/64/2.png" width="24"> | mostly sunny, some clouds          | 13.0       | 24.2       | 0            |
+
+The weather icons in `notebooks/icons/` are an original set keyed to the MeteoSwiss symbol codes (1–42 day, 101–142 night), not the official MeteoSwiss pictograms. The descriptions are the official MeteoSwiss texts — see [`notebooks/icons/README.md`](notebooks/icons/README.md).
 
 ---
 
@@ -109,6 +113,8 @@ Forecast data is fetched directly from the [Federal Geodata Infrastructure STAC 
 notebooks/
   Meteogram.ipynb       # Main notebook — data access and API walkthrough
   meteogram_plot.py     # Plotting module — all matplotlib code lives here
+  pictograms.py         # Loads the weather icons and their descriptions
+  icons/                # Weather icons (PNG) + descriptions for the MeteoSwiss symbol codes
   SolarProduction.ipynb # Downstream demo — PV output estimate from the radiation forecast
   solar_plot.py         # Plotting module for the Solar Production notebook
 scripts/
