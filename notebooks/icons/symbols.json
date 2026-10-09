@@ -1,0 +1,842 @@
+{
+ "1": {
+  "code": 1,
+  "day_night": "day",
+  "description_de": "sonnig",
+  "description_fr": "ensoleillé",
+  "description_it": "soleggiato",
+  "description_en": "sunny",
+  "description_en_alt": "sunny",
+  "svg": "svg/1.svg"
+ },
+ "2": {
+  "code": 2,
+  "day_night": "day",
+  "description_de": "ziemlich sonnig",
+  "description_fr": "assez ensoleillé, quelques passages nuageux",
+  "description_it": "abbastanza soleggiato",
+  "description_en": "mostly sunny, some clouds",
+  "description_en_alt": "mostly sunny",
+  "svg": "svg/2.svg"
+ },
+ "3": {
+  "code": 3,
+  "day_night": "day",
+  "description_de": "teilweise sonnig",
+  "description_fr": "en partie ensoleillé, passages nuageux parfois denses",
+  "description_it": "parzialmente soleggiato",
+  "description_en": "partly sunny, thick passing clouds",
+  "description_en_alt": "partly sunny",
+  "svg": "svg/3.svg"
+ },
+ "4": {
+  "code": 4,
+  "day_night": "day",
+  "description_de": "wechselnd bewölkt",
+  "description_fr": "nuageux",
+  "description_it": "nuvoloso",
+  "description_en": "overcast",
+  "description_en_alt": "variable clouds",
+  "svg": "svg/4.svg"
+ },
+ "5": {
+  "code": 5,
+  "day_night": "day",
+  "description_de": "bedeckt",
+  "description_fr": "très nuageux",
+  "description_it": "coperto",
+  "description_en": "very cloudy",
+  "description_en_alt": "overcast",
+  "svg": "svg/5.svg"
+ },
+ "6": {
+  "code": 6,
+  "day_night": "day",
+  "description_de": "Aufhellungen, einzelne Regenschauer",
+  "description_fr": "éclaircies, averses isolées",
+  "description_it": "nuvolosità variabile con rovesci di pioggia isolati",
+  "description_en": "sunny intervals, isolated showers",
+  "description_en_alt": "sunny spells, isolated showers",
+  "svg": "svg/6.svg"
+ },
+ "7": {
+  "code": 7,
+  "day_night": "day",
+  "description_de": "Aufhellungen, einzelne Regen- oder Schneeschauer",
+  "description_fr": "éclaircies, averses isolées de pluie et neige mêlées",
+  "description_it": "nuvolosità variabile con rovesci di pioggia e neve isolati",
+  "description_en": "sunny intervals, isolated sleet",
+  "description_en_alt": "sunny spells, isolated rain or snow showers",
+  "svg": "svg/7.svg"
+ },
+ "8": {
+  "code": 8,
+  "day_night": "day",
+  "description_de": "Aufhellungen, einzelne Schneeschauer",
+  "description_fr": "éclaircies, giboulées de neige",
+  "description_it": "nuvolosità variabile con rovesci di neve isolati",
+  "description_en": "sunny intervals, snow showers",
+  "description_en_alt": "sunny spells, isolated snow showers",
+  "svg": "svg/8.svg"
+ },
+ "9": {
+  "code": 9,
+  "day_night": "day",
+  "description_de": "bewölkt, einige Regenschauer",
+  "description_fr": "nuageux, quelques averses",
+  "description_it": "nuvoloso con rovesci di pioggia",
+  "description_en": "overcast, some rain showers",
+  "description_en_alt": "cloudy, some showers",
+  "svg": "svg/9.svg"
+ },
+ "10": {
+  "code": 10,
+  "day_night": "day",
+  "description_de": "bewölkt, einige Regen- oder Schneeschauer",
+  "description_fr": "nuageux, quelques averses de pluie et neige mêlées",
+  "description_it": "nuvoloso con rovesci di pioggia e neve",
+  "description_en": "overcast, some sleet",
+  "description_en_alt": "cloudy, some rain or snow showers",
+  "svg": "svg/10.svg"
+ },
+ "11": {
+  "code": 11,
+  "day_night": "day",
+  "description_de": "bewölkt, einige Schneeschauer",
+  "description_fr": "nuageux, quelques averses de neige",
+  "description_it": "nuvoloso con rovesci di neve",
+  "description_en": "overcast, some snow showers",
+  "description_en_alt": "cloudy, some snow showers",
+  "svg": "svg/11.svg"
+ },
+ "12": {
+  "code": 12,
+  "day_night": "day",
+  "description_de": "Aufhellungen, leicht gewitterhaft",
+  "description_fr": "éclaircies, faiblement orageux",
+  "description_it": "nuvolosità variabile, con temporali possibili",
+  "description_en": "sunny intervals, chance of thunderstorms",
+  "description_en_alt": "sunny spells, slight risk of thunderstorms",
+  "svg": "svg/12.svg"
+ },
+ "13": {
+  "code": 13,
+  "day_night": "day",
+  "description_de": "Aufhellungen und gewitterhaft",
+  "description_fr": "éclaircies, orageux",
+  "description_it": "nuvolosità variabile e temporalesco",
+  "description_en": "sunny intervals, possible thunderstorms",
+  "description_en_alt": "sunny spells, thunderstorms",
+  "svg": "svg/13.svg"
+ },
+ "14": {
+  "code": 14,
+  "day_night": "day",
+  "description_de": "stark bewölkt, schwacher Regen",
+  "description_fr": "très nuageux, faibles pluies",
+  "description_it": "molto nuvoloso, deboli piogge",
+  "description_en": "very cloudy, light rain",
+  "description_en_alt": "very cloudy, light rain",
+  "svg": "svg/14.svg"
+ },
+ "15": {
+  "code": 15,
+  "day_night": "day",
+  "description_de": "stark bewölkt, schwacher Schnee oder Regen",
+  "description_fr": "très nuageux, faibles chutes de pluie et neige mêlées",
+  "description_it": "molto nuvoloso, debole pioggia frammista a neve",
+  "description_en": "very cloudy, light sleet",
+  "description_en_alt": "very cloudy, light snow or rain",
+  "svg": "svg/15.svg"
+ },
+ "16": {
+  "code": 16,
+  "day_night": "day",
+  "description_de": "stark bewölkt, schwacher Schnee",
+  "description_fr": "très nuageux, faibles chutes de neige",
+  "description_it": "molto nuvoloso, deboli nevicate",
+  "description_en": "very cloudy, light snow showers",
+  "description_en_alt": "very cloudy, light snow",
+  "svg": "svg/16.svg"
+ },
+ "17": {
+  "code": 17,
+  "day_night": "day",
+  "description_de": "stark bewölkt, zeitweise Regen",
+  "description_fr": "très nuageux, pluies intermittentes",
+  "description_it": "molto nuvoloso, piogge intermittenti",
+  "description_en": "very cloudy, intermittent rain",
+  "description_en_alt": "very cloudy, rain at times",
+  "svg": "svg/17.svg"
+ },
+ "18": {
+  "code": 18,
+  "day_night": "day",
+  "description_de": "stark bewölkt, zeitweise Schnee oder Regen",
+  "description_fr": "très nuageux, chutes intermittentes de pluie et neige mêlées",
+  "description_it": "molto nuvoloso, pioggia frammista a neve intermittente",
+  "description_en": "very cloudy, intermittent sleet",
+  "description_en_alt": "very cloudy, snow or rain at times",
+  "svg": "svg/18.svg"
+ },
+ "19": {
+  "code": 19,
+  "day_night": "day",
+  "description_de": "stark bewölkt, zeitweise Schnee",
+  "description_fr": "très nuageux, chutes de neige intermittentes",
+  "description_it": "molto nuvoloso, nevicate intermittenti",
+  "description_en": "very cloudy, intermittent snow",
+  "description_en_alt": "very cloudy, snow at times",
+  "svg": "svg/19.svg"
+ },
+ "20": {
+  "code": 20,
+  "day_night": "day",
+  "description_de": "stark bewölkt, anhaltender Regen",
+  "description_fr": "très nuageux, pluie continue",
+  "description_it": "molto nuvoloso, piogge intense",
+  "description_en": "very overcast with rain",
+  "description_en_alt": "very cloudy, persistent rain",
+  "svg": "svg/20.svg"
+ },
+ "21": {
+  "code": 21,
+  "day_night": "day",
+  "description_de": "stark bewölkt, anhaltender Regen oder Schnee",
+  "description_fr": "très nuageux, fréquentes chutes de pluie et neige mêlées",
+  "description_it": "molto nuvoloso, piogge e nevicate intense",
+  "description_en": "very overcast with frequent sleet",
+  "description_en_alt": "very cloudy, persistent rain or snow",
+  "svg": "svg/21.svg"
+ },
+ "22": {
+  "code": 22,
+  "day_night": "day",
+  "description_de": "stark bewölkt, anhaltender Schnee",
+  "description_fr": "très nuageux, fortes chutes de neige",
+  "description_it": "molto nuvoloso, nevicate intense",
+  "description_en": "very overcast with heavy snow",
+  "description_en_alt": "very cloudy, persistent snow",
+  "svg": "svg/22.svg"
+ },
+ "23": {
+  "code": 23,
+  "day_night": "day",
+  "description_de": "stark bewölkt, leicht gewitterhaft",
+  "description_fr": "très nuageux, faiblement orageux",
+  "description_it": "molto nuvoloso, temporali isolati",
+  "description_en": "very overcast, slight chance of storms",
+  "description_en_alt": "very cloudy, slight risk of thunderstorms",
+  "svg": "svg/23.svg"
+ },
+ "24": {
+  "code": 24,
+  "day_night": "day",
+  "description_de": "stark bewölkt, gewitterhaft",
+  "description_fr": "très nuageux, orageux",
+  "description_it": "molto nuvoloso, temporalesco",
+  "description_en": "very overcast with storms",
+  "description_en_alt": "very cloudy, thunderstorms",
+  "svg": "svg/24.svg"
+ },
+ "25": {
+  "code": 25,
+  "day_night": "day",
+  "description_de": "stark bewölkt, stark gewitterhaft",
+  "description_fr": "très nuageux, très orageux",
+  "description_it": "molto nuvoloso con temporali intensi",
+  "description_en": "very cloudy, very stormy",
+  "description_en_alt": "very cloudy, severe thunderstorms",
+  "svg": "svg/25.svg"
+ },
+ "26": {
+  "code": 26,
+  "day_night": "day",
+  "description_de": "Hohe Bewölkung",
+  "description_fr": "nuages élevés",
+  "description_it": "a tratti nuvolosità ad alta quota",
+  "description_en": "high clouds",
+  "description_en_alt": "high clouds",
+  "svg": "svg/26.svg"
+ },
+ "27": {
+  "code": 27,
+  "day_night": "day",
+  "description_de": "Hochnebel",
+  "description_fr": "stratus",
+  "description_it": "nebbia alta",
+  "description_en": "stratus",
+  "description_en_alt": "low stratus",
+  "svg": "svg/27.svg"
+ },
+ "28": {
+  "code": 28,
+  "day_night": "day",
+  "description_de": "Nebel",
+  "description_fr": "brouillard",
+  "description_it": "nebbia",
+  "description_en": "fog",
+  "description_en_alt": "fog",
+  "svg": "svg/28.svg"
+ },
+ "29": {
+  "code": 29,
+  "day_night": "day",
+  "description_de": "leicht bewölkt, einzelne Regenschauer",
+  "description_fr": "belles éclaircies, averses éparses",
+  "description_it": "in parte nuvoloso, isolati rovesci",
+  "description_en": "sunny intervals, scattered showers",
+  "description_en_alt": "slightly cloudy, isolated showers",
+  "svg": "svg/29.svg"
+ },
+ "30": {
+  "code": 30,
+  "day_night": "day",
+  "description_de": "leicht bewölkt, leichter Schneefall",
+  "description_fr": "belles éclaircies, giboulées de neige",
+  "description_it": "in parte nuvoloso, isolati rovesci di neve",
+  "description_en": "sunny intervals, scattered snow showers",
+  "description_en_alt": "slightly cloudy, light snowfall",
+  "svg": "svg/30.svg"
+ },
+ "31": {
+  "code": 31,
+  "day_night": "day",
+  "description_de": "teilweise sonnig, einige Schnee- oder Regenschauer",
+  "description_fr": "belles éclaircies, giboulées de pluie et de neige mêlées",
+  "description_it": "in parte nuvoloso, con rovesci di pioggia e di neve",
+  "description_en": "sunny intervals, scattered sleet",
+  "description_en_alt": "partly sunny, some snow or rain showers",
+  "svg": "svg/31.svg"
+ },
+ "32": {
+  "code": 32,
+  "day_night": "day",
+  "description_de": "teilweise sonnig, einige Regenschauer",
+  "description_fr": "éclaircies, quelques averses",
+  "description_it": "in parte nuvoloso con rovesci",
+  "description_en": "sunny intervals, some showers",
+  "description_en_alt": "partly sunny, some showers",
+  "svg": "svg/32.svg"
+ },
+ "33": {
+  "code": 33,
+  "day_night": "day",
+  "description_de": "bewölkt, häufige Regenschauer",
+  "description_fr": "rares éclaircies, fréquentes averses",
+  "description_it": "nuvoloso con frequenti rovesci di pioggia",
+  "description_en": "short sunny intervals, frequent rain",
+  "description_en_alt": "cloudy, frequent showers",
+  "svg": "svg/33.svg"
+ },
+ "34": {
+  "code": 34,
+  "day_night": "day",
+  "description_de": "bewölkt, häufige Schneeschauer",
+  "description_fr": "rares éclaircies, fréquentes averses de neige",
+  "description_it": "nuvoloso con frequenti rovesci di neve",
+  "description_en": "short sunny intervals, frequent snowfalls",
+  "description_en_alt": "cloudy, frequent snow showers",
+  "svg": "svg/34.svg"
+ },
+ "35": {
+  "code": 35,
+  "day_night": "day",
+  "description_de": "bedeckt und trocken",
+  "description_fr": "couvert et sec",
+  "description_it": "estesa nuvolosità ad alta quota",
+  "description_en": "overcast and dry",
+  "description_en_alt": "overcast and dry",
+  "svg": "svg/35.svg"
+ },
+ "36": {
+  "code": 36,
+  "day_night": "day",
+  "description_de": "teilweise sonnig, gewitterhaft",
+  "description_fr": "partiellement ensoleillé, orageux",
+  "description_it": "in parte nuvoloso, temporali isolati",
+  "description_en": "partly sunny, slightly stormy",
+  "description_en_alt": "partly sunny, thundery",
+  "svg": "svg/36.svg"
+ },
+ "37": {
+  "code": 37,
+  "day_night": "day",
+  "description_de": "teilweise sonnig, Gewitter und Schneeschauer",
+  "description_fr": "partiellement ensoleillé, averses de neige orageuses",
+  "description_it": "in parte nuvoloso, temporali con rovesci di neve",
+  "description_en": "partly sunny, stormy snow showers",
+  "description_en_alt": "partly sunny, thunderstorms and snow showers",
+  "svg": "svg/37.svg"
+ },
+ "38": {
+  "code": 38,
+  "day_night": "day",
+  "description_de": "bewölkt, Gewitter und häufige Regenschauer",
+  "description_fr": "nuageux, averses orageuses",
+  "description_it": "nuvoloso, temporalesco",
+  "description_en": "overcast, thundery showers",
+  "description_en_alt": "cloudy, thunderstorms and frequent showers",
+  "svg": "svg/38.svg"
+ },
+ "39": {
+  "code": 39,
+  "day_night": "day",
+  "description_de": "bewölkt, Gewitter und häufige Schneeschauer",
+  "description_fr": "nuageux, averses de neige orageuses",
+  "description_it": "nuvoloso, temporali con rovesci di neve",
+  "description_en": "overcast, thundery snow showers",
+  "description_en_alt": "cloudy, thunderstorms and frequent snow showers",
+  "svg": "svg/39.svg"
+ },
+ "40": {
+  "code": 40,
+  "day_night": "day",
+  "description_de": "stark bewölkt, leicht gewitterhaft",
+  "description_fr": "très nuageux, faiblement orageux",
+  "description_it": "molto nuvoloso, con temporali possibili",
+  "description_en": "very cloudly, slightly stormy",
+  "description_en_alt": "very cloudy, slight risk of thunderstorms",
+  "svg": "svg/40.svg"
+ },
+ "41": {
+  "code": 41,
+  "day_night": "day",
+  "description_de": "bewölkt, leicht gewitterhaft",
+  "description_fr": "nuageux, faiblement orageux",
+  "description_it": "nuvoloso, con temporali possibili",
+  "description_en": "overcast, slightly stormy",
+  "description_en_alt": "cloudy, slight risk of thunderstorms",
+  "svg": "svg/41.svg"
+ },
+ "42": {
+  "code": 42,
+  "day_night": "day",
+  "description_de": "stark bewölkt, Gewitter und häufige Schneeschauer",
+  "description_fr": "très nuageux, averses de neige orageuses",
+  "description_it": "molto nuvoloso, temporali con rovesci di neve",
+  "description_en": "very cloudly, thundery snow showers",
+  "description_en_alt": "very cloudy, thunderstorms and frequent snow showers",
+  "svg": "svg/42.svg"
+ },
+ "101": {
+  "code": 101,
+  "day_night": "night",
+  "description_de": "klar",
+  "description_fr": "ciel dégagé",
+  "description_it": "sereno",
+  "description_en": "clear",
+  "description_en_alt": "clear",
+  "svg": "svg/101.svg"
+ },
+ "102": {
+  "code": 102,
+  "day_night": "night",
+  "description_de": "leicht bewölkt",
+  "description_fr": "peu nuageux",
+  "description_it": "poco nuvoloso",
+  "description_en": "slightly overcast",
+  "description_en_alt": "mostly clear",
+  "svg": "svg/102.svg"
+ },
+ "103": {
+  "code": 103,
+  "day_night": "night",
+  "description_de": "zum Teil bewölkt",
+  "description_fr": "en partie nuageux",
+  "description_it": "in parte nuvoloso",
+  "description_en": "heavy cloud formations",
+  "description_en_alt": "partly cloudy",
+  "svg": "svg/103.svg"
+ },
+ "104": {
+  "code": 104,
+  "day_night": "night",
+  "description_de": "wechselnd bewölkt",
+  "description_fr": "nuageux",
+  "description_it": "nuvoloso",
+  "description_en": "overcast",
+  "description_en_alt": "variable clouds",
+  "svg": "svg/104.svg"
+ },
+ "105": {
+  "code": 105,
+  "day_night": "night",
+  "description_de": "bedeckt",
+  "description_fr": "très nuageux",
+  "description_it": "coperto",
+  "description_en": "very cloudy",
+  "description_en_alt": "overcast",
+  "svg": "svg/105.svg"
+ },
+ "106": {
+  "code": 106,
+  "day_night": "night",
+  "description_de": "Aufhellungen, einzelne Regenschauer",
+  "description_fr": "quelques éclaircies, averses par moments",
+  "description_it": "nuvolosità variabile con rovesci di pioggia isolati",
+  "description_en": "overcast, scattered showers",
+  "description_en_alt": "clear spells, isolated showers",
+  "svg": "svg/106.svg"
+ },
+ "107": {
+  "code": 107,
+  "day_night": "night",
+  "description_de": "Aufhellungen, einzelne Regen- oder Schneeschauer",
+  "description_fr": "quelques éclaircies, par moments averses de pluie et neige mêlées",
+  "description_it": "nuvolosità variabile con rovesci di pioggia e neve isolati",
+  "description_en": "overcast, scattered rain and snow showers",
+  "description_en_alt": "clear spells, isolated rain or snow showers",
+  "svg": "svg/107.svg"
+ },
+ "108": {
+  "code": 108,
+  "day_night": "night",
+  "description_de": "Aufhellungen, einzelne Schneeschauer",
+  "description_fr": "quelques éclaircies, giboulées de neige",
+  "description_it": "nuvolosità variabile con rovesci di neve isolati",
+  "description_en": "overcast, snow showers",
+  "description_en_alt": "clear spells, isolated snow showers",
+  "svg": "svg/108.svg"
+ },
+ "109": {
+  "code": 109,
+  "day_night": "night",
+  "description_de": "bewölkt, einige Regenschauer",
+  "description_fr": "nuageux, quelques averses",
+  "description_it": "nuvoloso con rovesci di pioggia",
+  "description_en": "overcast, some showers",
+  "description_en_alt": "cloudy, some showers",
+  "svg": "svg/109.svg"
+ },
+ "110": {
+  "code": 110,
+  "day_night": "night",
+  "description_de": "bewölkt, einige Regen- oder Schneeschauer",
+  "description_fr": "nuageux, quelques averses de pluie et neige mêlées",
+  "description_it": "nuvoloso con rovesci di pioggia e neve",
+  "description_en": "overcast, some rain and snow showers",
+  "description_en_alt": "cloudy, some rain or snow showers",
+  "svg": "svg/110.svg"
+ },
+ "111": {
+  "code": 111,
+  "day_night": "night",
+  "description_de": "bewölkt, einige Schneeschauer",
+  "description_fr": "nuageux, quelques averses de neige",
+  "description_it": "nuvoloso con rovesci di neve",
+  "description_en": "overcast, some snow showers",
+  "description_en_alt": "cloudy, some snow showers",
+  "svg": "svg/111.svg"
+ },
+ "112": {
+  "code": 112,
+  "day_night": "night",
+  "description_de": "Aufhellungen, leicht gewitterhaft",
+  "description_fr": "faiblement orageux",
+  "description_it": "nuvolosità variabile, con temporali possibili",
+  "description_en": "slightly stormy",
+  "description_en_alt": "clear spells, slight risk of thunderstorms",
+  "svg": "svg/112.svg"
+ },
+ "113": {
+  "code": 113,
+  "day_night": "night",
+  "description_de": "Aufhellungen und gewitterhaft",
+  "description_fr": "orageux",
+  "description_it": "nuvolosità variabile e temporalesco",
+  "description_en": "storms",
+  "description_en_alt": "clear spells, thunderstorms",
+  "svg": "svg/113.svg"
+ },
+ "114": {
+  "code": 114,
+  "day_night": "night",
+  "description_de": "stark bewölkt, schwacher Regen",
+  "description_fr": "très nuageux, faibles pluies",
+  "description_it": "molto nuvoloso, deboli piogge",
+  "description_en": "very cloudy, light rain",
+  "description_en_alt": "very cloudy, light rain",
+  "svg": "svg/114.svg"
+ },
+ "115": {
+  "code": 115,
+  "day_night": "night",
+  "description_de": "stark bewölkt, schwacher Schnee oder Regen",
+  "description_fr": "très nuageux, faibles chutes de pluie et neige mêlées",
+  "description_it": "molto nuvoloso, debole pioggia frammista a neve",
+  "description_en": "very cloudy, light rain and snow showers",
+  "description_en_alt": "very cloudy, light snow or rain",
+  "svg": "svg/115.svg"
+ },
+ "116": {
+  "code": 116,
+  "day_night": "night",
+  "description_de": "stark bewölkt, schwacher Schnee",
+  "description_fr": "très nuageux, faibles chutes de neige",
+  "description_it": "molto nuvoloso, deboli nevicate",
+  "description_en": "very cloudy, light snowfall",
+  "description_en_alt": "very cloudy, light snow",
+  "svg": "svg/116.svg"
+ },
+ "117": {
+  "code": 117,
+  "day_night": "night",
+  "description_de": "stark bewölkt, zeitweise Regen",
+  "description_fr": "très nuageux, pluies intermittences",
+  "description_it": "molto nuvoloso, piogge intermittenti",
+  "description_en": "very cloudy, intermittent rain",
+  "description_en_alt": "very cloudy, rain at times",
+  "svg": "svg/117.svg"
+ },
+ "118": {
+  "code": 118,
+  "day_night": "night",
+  "description_de": "stark bewölkt, zeitweise Schnee oder Regen",
+  "description_fr": "très nuageux, chutes intermittentes de pluie et neige mêlées",
+  "description_it": "molto nuvoloso, pioggia frammista a neve intermittente",
+  "description_en": "very cloudy, intermittant mixed rain and snowfall",
+  "description_en_alt": "very cloudy, snow or rain at times",
+  "svg": "svg/118.svg"
+ },
+ "119": {
+  "code": 119,
+  "day_night": "night",
+  "description_de": "stark bewölkt, zeitweise Schnee",
+  "description_fr": "très nuageux, chutes de neige intermittentes",
+  "description_it": "molto nuvoloso, nevicate intermittenti",
+  "description_en": "very cloudy, intermittent snowfall",
+  "description_en_alt": "very cloudy, snow at times",
+  "svg": "svg/119.svg"
+ },
+ "120": {
+  "code": 120,
+  "day_night": "night",
+  "description_de": "stark bewölkt, anhaltender Regen",
+  "description_fr": "très nuageux, pluie continue",
+  "description_it": "molto nuvoloso, piogge intense",
+  "description_en": "very cloudy, constant rain",
+  "description_en_alt": "very cloudy, persistent rain",
+  "svg": "svg/120.svg"
+ },
+ "121": {
+  "code": 121,
+  "day_night": "night",
+  "description_de": "stark bewölkt, anhaltender Regen oder Schnee",
+  "description_fr": "très nuageux, fréquentes chutes de pluie et neige mêlées",
+  "description_it": "molto nuvoloso, piogge e nevicate intense",
+  "description_en": "very cloudy, frequent rain and snowfall",
+  "description_en_alt": "very cloudy, persistent rain or snow",
+  "svg": "svg/121.svg"
+ },
+ "122": {
+  "code": 122,
+  "day_night": "night",
+  "description_de": "stark bewölkt, anhaltender Schnee",
+  "description_fr": "très nuageux, fortes chutes de neige",
+  "description_it": "molto nuvoloso, nevicate intense",
+  "description_en": "very cloudy, heavy snowfall",
+  "description_en_alt": "very cloudy, persistent snow",
+  "svg": "svg/122.svg"
+ },
+ "123": {
+  "code": 123,
+  "day_night": "night",
+  "description_de": "stark bewölkt, leicht gewitterhaft",
+  "description_fr": "très nuageux, faiblement orageux",
+  "description_it": "molto nuvoloso, temporali isolati",
+  "description_en": "very cloudy, slightly stormy",
+  "description_en_alt": "very cloudy, slight risk of thunderstorms",
+  "svg": "svg/123.svg"
+ },
+ "124": {
+  "code": 124,
+  "day_night": "night",
+  "description_de": "stark bewölkt, gewitterhaft",
+  "description_fr": "très nuageux, orageux",
+  "description_it": "molto nuvoloso, temporalesco",
+  "description_en": "very cloudy, stormy",
+  "description_en_alt": "very cloudy, thunderstorms",
+  "svg": "svg/124.svg"
+ },
+ "125": {
+  "code": 125,
+  "day_night": "night",
+  "description_de": "stark bewölkt, stark gewitterhaft",
+  "description_fr": "très nuageux, très orageux",
+  "description_it": "molto nuvoloso con temporali intensi",
+  "description_en": "very cloudy, storms",
+  "description_en_alt": "very cloudy, severe thunderstorms",
+  "svg": "svg/125.svg"
+ },
+ "126": {
+  "code": 126,
+  "day_night": "night",
+  "description_de": "Hohe Bewölkung",
+  "description_fr": "nuages élevés",
+  "description_it": "a tratti nuvolosità ad alta quota",
+  "description_en": "high cloud",
+  "description_en_alt": "high clouds",
+  "svg": "svg/126.svg"
+ },
+ "127": {
+  "code": 127,
+  "day_night": "night",
+  "description_de": "Hochnebel",
+  "description_fr": "stratus",
+  "description_it": "nebbia alta",
+  "description_en": "stratus",
+  "description_en_alt": "low stratus",
+  "svg": "svg/127.svg"
+ },
+ "128": {
+  "code": 128,
+  "day_night": "night",
+  "description_de": "Nebel",
+  "description_fr": "brouillard",
+  "description_it": "nebbia",
+  "description_en": "fog",
+  "description_en_alt": "fog",
+  "svg": "svg/128.svg"
+ },
+ "129": {
+  "code": 129,
+  "day_night": "night",
+  "description_de": "leicht bewölkt, einzelne Regenschauer",
+  "description_fr": "peu nuageux, averses éparses",
+  "description_it": "in parte nuvoloso, isolati rovesci",
+  "description_en": "slightly overcast, scattered showers",
+  "description_en_alt": "slightly cloudy, isolated showers",
+  "svg": "svg/129.svg"
+ },
+ "130": {
+  "code": 130,
+  "day_night": "night",
+  "description_de": "leicht bewölkt, leichter Schneefall",
+  "description_fr": "peu nuageux, giboulées de neige",
+  "description_it": "in parte nuvoloso, isolati rovesci di neve",
+  "description_en": "slightly overcast, scattered snowfall",
+  "description_en_alt": "slightly cloudy, light snowfall",
+  "svg": "svg/130.svg"
+ },
+ "131": {
+  "code": 131,
+  "day_night": "night",
+  "description_de": "leicht bewölkt, einige Schnee- oder Regenschauer",
+  "description_fr": "peu nuageux, giboulées de pluie et neige mêlées",
+  "description_it": "in parte nuvoloso, con alcuni rovesci di pioggia e di neve",
+  "description_en": "slightly overcast, rain and snow showers",
+  "description_en_alt": "slightly cloudy, some snow or rain showers",
+  "svg": "svg/131.svg"
+ },
+ "132": {
+  "code": 132,
+  "day_night": "night",
+  "description_de": "leicht bewölkt, einige Regenschauer",
+  "description_fr": "peu nuageux, quelques averses",
+  "description_it": "in parte nuvoloso con alcuni rovesci",
+  "description_en": "slightly overcast, some showers",
+  "description_en_alt": "slightly cloudy, some showers",
+  "svg": "svg/132.svg"
+ },
+ "133": {
+  "code": 133,
+  "day_night": "night",
+  "description_de": "bewölkt, häufige Regenschauer",
+  "description_fr": "nuageux, fréquentes averses",
+  "description_it": "nuvoloso con frequenti rovesci di pioggia",
+  "description_en": "overcast, frequent snow showers",
+  "description_en_alt": "cloudy, frequent showers",
+  "svg": "svg/133.svg"
+ },
+ "134": {
+  "code": 134,
+  "day_night": "night",
+  "description_de": "bewölkt, häufige Schneeschauer",
+  "description_fr": "nuageux, fréquentes averses de neige",
+  "description_it": "nuvoloso con frequenti rovesci di neve",
+  "description_en": "overcast, frequent snow showers",
+  "description_en_alt": "cloudy, frequent snow showers",
+  "svg": "svg/134.svg"
+ },
+ "135": {
+  "code": 135,
+  "day_night": "night",
+  "description_de": "bedeckt und trocken",
+  "description_fr": "couvert et sec",
+  "description_it": "estesa nuvolosità ad alta quota",
+  "description_en": "overcast and dry",
+  "description_en_alt": "overcast and dry",
+  "svg": "svg/135.svg"
+ },
+ "136": {
+  "code": 136,
+  "day_night": "night",
+  "description_de": "Aufhellungen, gewitterhaft",
+  "description_fr": "en partie nuageux, orageux",
+  "description_it": "in parte nuvoloso, temporali isolati",
+  "description_en": "slightly overcast, slightly stormy",
+  "description_en_alt": "clear spells, thundery",
+  "svg": "svg/136.svg"
+ },
+ "137": {
+  "code": 137,
+  "day_night": "night",
+  "description_de": "leicht bewölkt, Gewitter und Schneeschauer",
+  "description_fr": "en partie nuageux, averses de neige orageuses",
+  "description_it": "in parte nuvoloso, temporali con rovesci di neve",
+  "description_en": "slightly overcast, stormy snow showers",
+  "description_en_alt": "slightly cloudy, thunderstorms and snow showers",
+  "svg": "svg/137.svg"
+ },
+ "138": {
+  "code": 138,
+  "day_night": "night",
+  "description_de": "bewölkt, Gewitter und häufige Regenschauer",
+  "description_fr": "nuageux, averses orageuses",
+  "description_it": "nuvoloso, temporalesco",
+  "description_en": "overcast, thundery showers",
+  "description_en_alt": "cloudy, thunderstorms and frequent showers",
+  "svg": "svg/138.svg"
+ },
+ "139": {
+  "code": 139,
+  "day_night": "night",
+  "description_de": "bewölkt, Gewitter und häufige Schneeschauer",
+  "description_fr": "nuageux, averses de neige orageuses",
+  "description_it": "nuvoloso, temporali con rovesci di neve",
+  "description_en": "overcast, thundery snow showers",
+  "description_en_alt": "cloudy, thunderstorms and frequent snow showers",
+  "svg": "svg/139.svg"
+ },
+ "140": {
+  "code": 140,
+  "day_night": "night",
+  "description_de": "stark bewölkt, leicht gewitterhaft",
+  "description_fr": "très nuageux, faiblement orageux",
+  "description_it": "molto nuvoloso, con temporali possibili",
+  "description_en": "very cloudly, slightly stormy",
+  "description_en_alt": "very cloudy, slight risk of thunderstorms",
+  "svg": "svg/140.svg"
+ },
+ "141": {
+  "code": 141,
+  "day_night": "night",
+  "description_de": "bewölkt, leicht gewitterhaft",
+  "description_fr": "nuageux, faiblement orageux",
+  "description_it": "nuvoloso, con temporali possibili",
+  "description_en": "overcast, slightly stormy",
+  "description_en_alt": "cloudy, slight risk of thunderstorms",
+  "svg": "svg/141.svg"
+ },
+ "142": {
+  "code": 142,
+  "day_night": "night",
+  "description_de": "stark bewölkt, Gewitter und häufige Schneeschauer",
+  "description_fr": "très nuageux, averses de neige orageuses",
+  "description_it": "molto nuvoloso, temporali con rovesci di neve",
+  "description_en": "very cloudly, thundery snow showers",
+  "description_en_alt": "very cloudy, thunderstorms and frequent snow showers",
+  "svg": "svg/142.svg"
+ }
+}

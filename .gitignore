@@ -8,6 +8,7 @@ PROGRESS.md
 __pycache__/
 *.py[cod]
 .venv/
+poetry.toml
 
 # Jupyter
 .ipynb_checkpoints/
